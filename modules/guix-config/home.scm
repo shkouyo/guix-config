@@ -2,3 +2,13 @@
 ;;
 ;; Copyright (C) 2026 ShinKouyo <i@0x0f.dev>
 ;; SPDX-License-Identifier: AGPL-3.0-or-later
+
+(define-module (guix-config home)
+  #:use-module (gnu home)
+  #:use-module (gnu packages rust-apps)
+  #:use-module (gnu packages version-control)
+  #:export (home))
+
+(define home
+  (home-environment
+   (packages (list git just))))
