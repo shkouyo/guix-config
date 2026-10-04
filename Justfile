@@ -27,7 +27,7 @@ system:
 	    echo "error: HEAD is not the pulled guix-config commit" >&2
 	    exit 1
 	fi
-	sudo -E "$(command -v guix)" system reconfigure systems/system.scm
+	sudo -E XDG_CACHE_HOME=/root/.cache "$(command -v guix)" system reconfigure systems/system.scm
 
 restore generation:
 	#!/usr/bin/env bash
@@ -38,7 +38,7 @@ restore generation:
 	    exit 1
 	fi
 	guix pull -C "$generation/channels.scm"
-	sudo -E "$(command -v guix)" system reconfigure "$generation/configuration.scm"
+	sudo -E XDG_CACHE_HOME=/root/.cache "$(command -v guix)" system reconfigure "$generation/configuration.scm"
 
 gc:
 	guix gc -d 1m -F 5G
