@@ -6,20 +6,13 @@
 update:
 	guix pull -C channels.scm
 
-lock:
-	guix describe -f channels > channels.lock
-
-sync:
-	guix pull -C channels.lock
-
 build:
 	guix system build -L modules systems/system.scm
 
 system:
 	#!/usr/bin/env bash
 	set -euo pipefail
-	dirty="$(git status --porcelain | grep -v 'channels\.lock$' || true)"
-	if [ -n "$dirty" ]; then
+	if [ -n "$(git status --porcelain)" ]; then
 	    echo "error: dirty working tree" >&2
 	    exit 1
 	fi
