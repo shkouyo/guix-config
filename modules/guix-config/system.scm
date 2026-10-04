@@ -9,6 +9,7 @@
   #:use-module (guix-config file-systems)
   #:use-module (guix-config keyboard)
   #:use-module (guix-config services base)
+  #:use-module (guix-config services elogind)
   #:use-module (guix-config services firewall)
   #:use-module (guix-config services network)
   #:use-module (guix-config services ntp)
@@ -30,7 +31,7 @@
                     (supplementary-groups '("wheel" "netdev" "audio" "video")))
                   %base-user-accounts))
     (services
-     (append (list ssh-service ntp-service firewall-service)
+     (append (list ssh-service ntp-service firewall-service elogind-service)
              %network-services
              %substitute-services
              %base-services*))
