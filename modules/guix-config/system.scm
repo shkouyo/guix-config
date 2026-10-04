@@ -7,10 +7,12 @@
   #:use-module (gnu)
   #:use-module (guix-config bootloader)
   #:use-module (guix-config file-systems)
+  #:use-module (guix-config kernel)
   #:use-module (guix-config keyboard)
   #:use-module (guix-config services base)
   #:use-module (guix-config services elogind)
   #:use-module (guix-config services firewall)
+  #:use-module (guix-config services modprobe)
   #:use-module (guix-config services network)
   #:use-module (guix-config services ntp)
   #:use-module (guix-config services ssh)
@@ -31,10 +33,12 @@
                     (supplementary-groups '("wheel" "netdev" "audio" "video")))
                   %base-user-accounts))
     (services
-     (append (list ssh-service ntp-service firewall-service elogind-service)
+     (append (list ssh-service ntp-service firewall-service elogind-service
+                   modprobe-service)
              %network-services
              %substitute-services
              %base-services*))
+    (kernel-arguments %kernel-arguments)
     (bootloader %bootloader-configuration)
     (swap-devices %swap-devices)
     (file-systems (append %file-systems %base-file-systems))))
