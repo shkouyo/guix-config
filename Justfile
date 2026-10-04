@@ -15,7 +15,7 @@ sync:
 build:
 	guix system build -L modules systems/system.scm
 
-system: update
+system:
 	#!/usr/bin/env bash
 	set -euo pipefail
 	dirty="$(git status --porcelain | grep -v 'channels\.lock$' || true)"
@@ -24,10 +24,8 @@ system: update
 	    exit 1
 	fi
 	head="$(git rev-parse HEAD)"
-	channels="$(guix describe -f channels)"
-	if ! grep -qF "$head" <<<"$channels"; then
-	    echo "error: HEAD ($head) is not the pulled guix-config commit" >&2
-	    echo "hint: 'git pull' so that HEAD matches the pushed guix-config commit" >&2
+	if ! guix describe -f channels | grep -qF "$head"; then
+	    echo "error: HEAD is not the pulled guix-config commit" >&2
 	    exit 1
 	fi
 	sudo -E XDG_CACHE_HOME=/root/.cache "$(command -v guix)" system reconfigure systems/system.scm
