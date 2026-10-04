@@ -18,7 +18,8 @@ build:
 system:
 	#!/usr/bin/env bash
 	set -euo pipefail
-	if [ -n "$(git status --porcelain)" ]; then
+	dirty="$(git status --porcelain | grep -v 'channels\.lock$' || true)"
+	if [ -n "$dirty" ]; then
 	    echo "error: dirty working tree" >&2
 	    exit 1
 	fi
