@@ -17,7 +17,8 @@ system:
 	    exit 1
 	fi
 	head="$(git rev-parse HEAD)"
-	if ! guix describe -f channels | grep -qF "$head"; then
+	channels="$(guix describe -f channels)"
+	if ! grep -qF "$head" <<<"$channels"; then
 	    echo "error: HEAD is not the pulled guix-config commit" >&2
 	    exit 1
 	fi
