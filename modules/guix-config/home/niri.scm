@@ -19,5 +19,5 @@
 (define niri-config-files
   (simple-service 'niri-config-files
                   home-xdg-configuration-files-service-type
-                  (list (cons "niri/config.kdl"
+                  (list (list "niri/config.kdl"
                               (local-file "../../../files/dotfiles/niri/config.kdl")))))
