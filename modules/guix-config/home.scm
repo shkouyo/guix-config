@@ -8,11 +8,12 @@
   #:use-module (gnu home services)
   #:use-module (gnu packages rust-apps)
   #:use-module (gnu packages version-control)
+  #:use-module (guix-config home kitty)
   #:use-module (guix-config home niri)
   #:export (home))
 
 (define home
   (home-environment
-   (packages (append niri-packages (list git just)))
-   (services (append (list niri-config-files)
+   (packages (append kitty-packages niri-packages (list git just)))
+   (services (append (list kitty-config-files niri-config-files)
                      %base-home-services))))
