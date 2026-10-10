@@ -5,6 +5,7 @@
 
 (define-module (guix-config system)
   #:use-module (gnu)
+  #:use-module (gnu packages shells)
   #:use-module (guix-config bootloader)
   #:use-module (guix-config file-systems)
   #:use-module (guix-config kernel)
@@ -32,6 +33,7 @@
                     (home-directory "/home/shkouyo")
                     (supplementary-groups '("wheel" "netdev" "audio" "video")))
                   %base-user-accounts))
+    (packages (cons* dash %base-packages))
     (services
      (append (list ssh-service ntp-service firewall-service elogind-service
                    modprobe-service)
