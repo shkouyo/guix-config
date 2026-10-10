@@ -9,4 +9,6 @@
   #:export (elogind-service))
 
 (define elogind-service
-  (service elogind-service-type))
+  (service elogind-service-type
+           (elogind-configuration
+            (handle-power-key 'ignore))))
