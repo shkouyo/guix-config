@@ -5,7 +5,7 @@
 
 (cons* (channel
         (inherit (car %default-channels))
-        (url "https://mirror.nju.edu.cn/git/guix.git"))
+        (url "https://mirror.sjtu.edu.cn/git/guix.git"))
        (channel
         (name 'guix-config)
         (url "https://git.0x0f.dev/~shkouyo/guix-config")
