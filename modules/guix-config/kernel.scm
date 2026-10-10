@@ -13,7 +13,7 @@
          "nowatchdog"
          "libahci.ignore_sss=1"
          "nvidia-drm.modeset=1"
-         "resume=UUID=45cbc7b4-859b-4126-9dfb-e2be0292c655"
+         "resume=45cbc7b4-859b-4126-9dfb-e2be0292c655"
          "fastboot"
          (remove (lambda (argument)
                    (string=? argument "quiet"))
