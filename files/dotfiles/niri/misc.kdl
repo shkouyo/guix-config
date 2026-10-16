@@ -1,0 +1,58 @@
+// Copyright (C) 2026 ShinKouyo <i@0x0f.dev>
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+spawn-at-startup "pipewire"
+spawn-at-startup "wireplumber"
+spawn-at-startup "pipewire-pulse"
+spawn-at-startup "~/.guix-home/profile/libexec/polkit-gnome-authentication-agent-1"
+
+// TODO
+// spawn-at-startup "waybar"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+recent-windows {
+    off
+}
+
+prefer-no-csd
+
+// TODO
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path null
+
+animations {
+    off
+}
+
+cursor {
+    // TODO
+    hide-after-inactive-ms 5000
+}
+
+overview {
+    backdrop-color "#11111b"
+}
+
+clipboard {
+    disable-primary
+}
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+window-rule {
+    opacity 1.0
+    geometry-corner-radius 6
+    clip-to-geometry true
+    tiled-state true
+}

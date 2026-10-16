@@ -11,13 +11,16 @@
   #:use-module (guix-config kernel)
   #:use-module (guix-config keyboard)
   #:use-module (guix-config services base)
+  #:use-module (guix-config services dbus)
   #:use-module (guix-config services elogind)
   #:use-module (guix-config services firewall)
   #:use-module (guix-config services modprobe)
   #:use-module (guix-config services network)
   #:use-module (guix-config services ntp)
+  #:use-module (guix-config services polkit)
   #:use-module (guix-config services ssh)
   #:use-module (guix-config services substitutes)
+  #:use-module (guix-config services x11)
   #:export (system))
 
 (define system
@@ -35,10 +38,11 @@
                   %base-user-accounts))
     (packages (cons* dash %base-packages))
     (services
-     (append (list ssh-service ntp-service firewall-service elogind-service
-                   modprobe-service)
+     (append (list dbus-service ssh-service ntp-service firewall-service
+                   elogind-service modprobe-service x11-service)
              %network-services
              %substitute-services
+             %polkit-services
              %base-services*))
     (kernel-arguments %kernel-arguments)
     (bootloader %bootloader-configuration)

@@ -20,4 +20,14 @@
   (simple-service 'niri-config-files
                   home-xdg-configuration-files-service-type
                   (list (list "niri/config.kdl"
-                              (local-file "../../../files/dotfiles/niri/config.kdl")))))
+                              (local-file "../../../files/dotfiles/niri/config.kdl"))
+                        (list "niri/input.kdl"
+                              (local-file "../../../files/dotfiles/niri/input.kdl"))
+                        (list "niri/outputs.kdl"
+                              (local-file "../../../files/dotfiles/niri/outputs.kdl"))
+                        (list "niri/layout.kdl"
+                              (local-file "../../../files/dotfiles/niri/layout.kdl"))
+                        (list "niri/misc.kdl"
+                              (local-file "../../../files/dotfiles/niri/misc.kdl"))
+                        (list "niri/binds.kdl"
+                              (local-file "../../../files/dotfiles/niri/binds.kdl")))))

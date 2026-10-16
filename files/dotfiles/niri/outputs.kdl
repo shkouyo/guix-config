@@ -1,0 +1,10 @@
+// Copyright (C) 2026 ShinKouyo <i@0x0f.dev>
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+output "HDMI-A-1" {
+    // off
+    mode "1920x1080@143.981"
+    scale 1.0
+    transform "normal"
+    focus-at-startup
+}
