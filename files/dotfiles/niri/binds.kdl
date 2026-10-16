@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 binds {
-    Mod+T { spawn "foot"; }
+    Mod+T { spawn "kitty" "-1"; }
     Mod+D { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
 
