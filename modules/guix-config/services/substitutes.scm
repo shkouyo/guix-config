@@ -18,12 +18,11 @@
                         (guix-extension
                          (substitute-urls '("https://mirror.sjtu.edu.cn/guix"
                                             "https://mirror.sjtu.edu.cn/guix-bordeaux"))))
-        (simple-service 'guix-moe guix-service-type
+        (simple-service 'nonguix-mirrors guix-service-type
                         (guix-extension
                          (substitute-urls '("https://cache-sg.guix.moe"
                                             "https://cache-fi.guix.moe"
                                             "https://cache-us-lax.guix.moe"))))
-        (simple-service 'nonguix-substitutes guix-service-type
+        (simple-service 'nonguix-signing-key guix-service-type
                         (guix-extension
-                         (substitute-urls '("https://substitutes.nonguix.org"))
                          (authorized-keys (list %nonguix-signing-key))))))
